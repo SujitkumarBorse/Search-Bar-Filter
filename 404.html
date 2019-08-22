@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta http-equiv="X-UA-Compatible" content="ie=edge">
+      <title>Serach Bar and Filter</title>
+      <style>
+            #myTable {
+                  width: 100%;
+            }
+
+            #myTable,
+            tr,
+            td {
+                  border: 2px solid black;
+                  border-collapse: collapse;
+                  padding: 10px;
+                  text-align: center;
+            }
+
+            .header {
+                  border: 3px solid rgb(17, 128, 50);
+            }
+
+            #myTable tr.header,
+            #myTable tr:hover {
+                  background-color: #f1f1f1;
+
+            }
+
+            #searchBar {
+                  width: 100%;
+                  height: 30px;
+                  border: 2px solid rgb(67, 29, 202);
+            }
+      </style>
+</head>
+
+<body>
+      <h2 style="text-align: center;text-transform:uppercase;color:brown;"> My Friends Details</h2>
+
+      <input type="text" name="" id="searchBar" placeholder="Search Name" onkeyup="searchFunction()">
+
+      <br> <br>
+      <table id="myTable">
+            <tr class="header">
+                  <td style="width: 33.3333%;">Name</td>
+                  <td style="width: 33.3333%">Degree</td>
+                  <td style="width: 33.3333%">Profession</td>
+            </tr>
+            <tr>
+                  <td>Sujitkumar B.</td>
+                  <td>M.Tech(IMWCA)</td>
+                  <td>Front-End Developer</td>
+            </tr>
+            <tr>
+                  <td>Pramod A.</td>
+                  <td>M.Sc.(Maths)</td>
+                  <td>Teacher</td>
+            </tr>
+            <tr>
+                  <td>Soma P.</td>
+                  <td>M.Tech(IMWCA)</td>
+                  <td>Ruby & Rails Developer</td>
+            </tr>
+            <tr>
+                  <td>Krishna G.</td>
+                  <td>B.Sc.(Maths)</td>
+                  <td>Alexa Developer</td>
+            </tr>
+            <tr>
+                  <td>Rajendra Z.</td>
+                  <td>M.Tech(IMWCA)</td>
+                  <td>.Net Developer</td>
+            </tr>
+            <tr>
+                  <td>Mithilesh K.</td>
+                  <td>B.Sc.(Chem)</td>
+                  <td>Business</td>
+            </tr>
+            <tr>
+                  <td>Rajendra C.</td>
+                  <td>M.Tech(IMWCA)</td>
+                  <td>MEAN-Stack Developer</td>
+            </tr>
+            <tr>
+                  <td>Manoj M.</td>
+                  <td>B.E.(Mech)</td>
+                  <td>I.A.S.</td>
+            </tr>
+            <tr>
+                  <td>vaibhav B.</td>
+                  <td>M.Tech(IMWCA)</td>
+                  <td>C++ Developer</td>
+            </tr>
+            <tr>
+                  <td>vaibhav G.</td>
+                  <td>B.Sc.(Chem)</td>
+                  <td>Pursuing B.Sc.</td>
+            </tr>
+      </table>
+
+</body>
+<script>
+      const searchFunction = () => {
+            let filter = document.getElementById('searchBar').value.toLocaleUpperCase();
+            let myTable = document.getElementById('myTable');
+            let tr = myTable.getElementsByTagName('tr');
+
+            for (var i = 0; i < tr.length; i++) {
+                  let td = tr[i].getElementsByTagName('td')[0];
+
+                  if (td) {
+                        let textValue = td.textContent || td.innerHTML;
+
+                        if (textValue.toLocaleUpperCase().indexOf(filter) > -1) {
+                              tr[i].style.display = "";
+                        }
+                        else {
+                              tr[i].style.display = "none";
+                        }
+                  }
+            }
+      }
+</script>
+
+</html>
